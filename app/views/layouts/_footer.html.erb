@@ -1,0 +1,8 @@
+<%= yield(:javascripts) if content_for(:javascripts) %>
+<% if content_for?(:js_after_page_initialize) %>
+  <%= content_tag :script, type: 'text/javascript' do %>
+    $(function() {
+      <%= yield :js_after_page_initialize %>
+    })
+  <% end %>
+<% end %>

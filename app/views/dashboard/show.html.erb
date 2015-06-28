@@ -1,0 +1,9 @@
+<%= render partial: 'tiny_urls/list', locals: { list: @tiny_urls } %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'dashboard' %>
+<% end %>
+
+<% content_for :js_after_page_initialize do %>
+  Dashboard.init();
+<% end %>

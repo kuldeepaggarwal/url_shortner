@@ -1,0 +1,13 @@
+<%= form_for @tiny_url || TinyUrl.new, html: { class: 'form-horizontal', data: { type: 'HTML' } }, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :url, class: "col-sm-2 control-label" %>
+    <div class="col-sm-6">
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

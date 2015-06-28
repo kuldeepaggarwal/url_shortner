@@ -1,0 +1,15 @@
+<%= render 'tiny_urls/form' %>
+
+<div class="mt10"></div>
+<table class="table table-hover <%= 'hide' unless user_signed_in? %>">
+  <thead>
+    <tr>
+      <th>Long Url</th>
+      <th>Created</th>
+      <th>Short Url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'tiny_urls/tiny_url', collection: list %>
+  </tbody>
+</table>

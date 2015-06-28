@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to uri_path(tiny_url.url), tiny_url.url %></td>
+  <td><%= timeago_tag tiny_url.created_at, nojs: true  %></td>
+  <td><%= link_to tiny_url_translate_path(tiny_url.slug), tiny_url_translate_url(tiny_url.slug), target: '_blank' %></td>
+</tr>

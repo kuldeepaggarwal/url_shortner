@@ -1,0 +1,9 @@
+<%= render partial: 'tiny_urls/list', locals: { list: [] } %>
+
+<% content_for :javascripts do %>
+  <%= javascript_include_tag 'login' %>
+<% end %>
+
+<% content_for :js_after_page_initialize do %>
+  Login.init();
+<% end %>
