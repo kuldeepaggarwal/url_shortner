@@ -13,3 +13,5 @@
 /tmp
 /config/*.yml
 .ruby-version
+.rspec
+/coverage
