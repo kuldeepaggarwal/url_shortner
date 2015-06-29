@@ -5,7 +5,7 @@ class TinyUrlsController < ApplicationController
   layout false, only: :create
 
   def translate
-    tiny_url = TinyUrl.find_slug(params[:slug])
+    tiny_url = TinyUrl.find_by_slug(params[:slug])
     if tiny_url
       redirect_to tiny_url.url, status: 301
     else

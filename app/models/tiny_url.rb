@@ -27,10 +27,6 @@ class TinyUrl < ActiveRecord::Base
   # Scopes
   scope :ordered, -> { order(created_at: :desc) }
 
-  def self.find_slug(slug)
-    find_by(slug: slug)
-  end
-
   private
     def set_slug
       self.class.max_retries.times do
