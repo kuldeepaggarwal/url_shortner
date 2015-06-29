@@ -1,6 +1,6 @@
 class TinyUrl < ActiveRecord::Base
   DEFAULT_PROTOCOL = 'http://'
-  PROTOCOL = /\Ahttps?:\/\//i
+  PROTOCOL_REGEXP = /\Ahttps?:\/\//i
 
   # Configurations
   cattr_accessor :slug_length
@@ -56,7 +56,7 @@ class TinyUrl < ActiveRecord::Base
     def normalize_url!
       return if url.blank?
 
-      _url = url.prepend(DEFAULT_PROTOCOL) unless url =~ PROTOCOL
+      _url = url.prepend(DEFAULT_PROTOCOL) unless url =~ PROTOCOL_REGEXP
       normalized_url = URI.parse(_url || url).normalize.to_s
       self.url = normalized_url.ends_with?('/') ? normalized_url[0...-1] : normalized_url[0..1]
     end
