@@ -54,6 +54,6 @@ class TinyUrl < ActiveRecord::Base
 
       _url = url.prepend(DEFAULT_PROTOCOL) unless url =~ PROTOCOL_REGEXP
       normalized_url = URI.parse(_url || url).normalize.to_s
-      self.url = normalized_url.ends_with?('/') ? normalized_url[0...-1] : normalized_url[0..1]
+      self.url = normalized_url.ends_with?('/') ? normalized_url[0...-1] : normalized_url[0..-1]
     end
 end

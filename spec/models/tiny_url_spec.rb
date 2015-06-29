@@ -73,9 +73,12 @@ RSpec.describe TinyUrl, type: :model do
       end
 
       it 'normalize url' do
-        subject.url = "http://google.com/"
+        subject.url = 'http://google.com/'
         subject.save!
         expect(subject.url).to eq('http://google.com')
+        subject.url = 'http://auer.info/laurie.hoppe'
+        subject.save!
+        expect(subject.url).to eq('http://auer.info/laurie.hoppe')
       end
     end
 
@@ -83,9 +86,12 @@ RSpec.describe TinyUrl, type: :model do
       let(:subject) { FactoryGirl.create(:tiny_url) }
 
       it 'normalize url' do
-        subject.url = "http://google.com/"
+        subject.url = 'http://google.com/'
         subject.save!
         expect(subject.url).to eq('http://google.com')
+        subject.url = 'http://auer.info/laurie.hoppe'
+        subject.save!
+        expect(subject.url).to eq('http://auer.info/laurie.hoppe')
       end
     end
   end
